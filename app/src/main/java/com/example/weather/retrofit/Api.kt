@@ -1,4 +1,4 @@
-package com.example.weather
+package com.example.weather.retrofit
 
 import com.example.weather.models.JsonContent
 import io.reactivex.Single
@@ -14,6 +14,6 @@ interface Api {
 
     @GET("current.json?key=$API_KEY")
     fun getCurrentWeather(
-        @Query("q") location: String = "Paris"
+        @Query("q") location: String = "Rostov on Don"
     ): Single<JsonContent>
 }

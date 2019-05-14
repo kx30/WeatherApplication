@@ -6,7 +6,7 @@ data class LocationInfo (
     val country: String,
     val lat: Float,
     val lon: Float,
-    val timeZoneId: String,
+    val tz_id: String,
     val localTimeEpoch: String,
     val localTime: String
 )

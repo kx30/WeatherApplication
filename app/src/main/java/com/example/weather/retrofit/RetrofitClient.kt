@@ -1,4 +1,4 @@
-package com.example.weather
+package com.example.weather.retrofit
 
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
