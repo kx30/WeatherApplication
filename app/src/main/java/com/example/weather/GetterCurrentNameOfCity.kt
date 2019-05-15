@@ -12,10 +12,10 @@ import android.provider.Settings
 import android.util.Log
 import java.util.*
 
-class CityManager {
+class GetterCurrentNameOfCity {
 
     companion object {
-        private val TAG = "CityManager"
+        private val TAG = "GetterCurrentNameOfCity"
     }
 
     private lateinit var locationManager: LocationManager

@@ -1,7 +1,7 @@
 package com.example.weather.models
 
+import com.google.gson.annotations.SerializedName
+
 data class CurrentCondition (
-    val text: String,
-    val iconUrl: String,
-    val code: Int
+    @SerializedName("icon") val iconUrl: String
 )
