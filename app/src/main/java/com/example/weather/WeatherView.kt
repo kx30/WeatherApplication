@@ -4,5 +4,5 @@ import com.arellomobile.mvp.MvpView
 import com.example.weather.models.WeatherInfo
 
 interface WeatherView: MvpView{
-    fun setCurrentTemperature(weatherInfo: WeatherInfo)
+    fun setCurrentWeatherInfo(weatherInfo: WeatherInfo)
 }

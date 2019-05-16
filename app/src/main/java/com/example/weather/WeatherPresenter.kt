@@ -22,11 +22,10 @@ class WeatherPresenter(context: Context) : MvpPresenter<WeatherView>() {
 
     private val TAG = "WeatherPresenter"
 
-
     init {
         PermissionManager.checkPermission(context, permissions)
         val city = GetterCurrentNameOfCity().getLocation(context)
-        downloadData(city!!)
+        downloadData(city)
     }
 
     private fun downloadData(city: String) {
@@ -40,8 +39,7 @@ class WeatherPresenter(context: Context) : MvpPresenter<WeatherView>() {
             .subscribe({ content ->
                 locationInfo = content.location
                 weatherInfo = content.weatherInfo
-                Log.d(TAG, "downloadData: ${weatherInfo}")
-                viewState.setCurrentTemperature(weatherInfo)
+                viewState.setCurrentWeatherInfo(weatherInfo)
             }, {
                 it.printStackTrace()
             })

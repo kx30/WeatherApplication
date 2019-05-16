@@ -23,7 +23,7 @@ class GetterCurrentNameOfCity {
     private var locationGps: Location? = null
 
     @SuppressLint("MissingPermission")
-    fun getLocation(context: Context): String? {
+    fun getLocation(context: Context): String {
         locationManager = context.getSystemService(Context.LOCATION_SERVICE) as LocationManager
         hasGps = locationManager.isProviderEnabled(LocationManager.GPS_PROVIDER)
         if (hasGps) {
@@ -39,7 +39,6 @@ class GetterCurrentNameOfCity {
                         )
                     }
                 }
-
                 override fun onStatusChanged(p0: String?, p1: Int, p2: Bundle?) {}
                 override fun onProviderEnabled(p0: String?) {}
                 override fun onProviderDisabled(p0: String?) {}
@@ -52,14 +51,16 @@ class GetterCurrentNameOfCity {
 
             if (locationGps != null) {
                 Log.d(
-                    "CodeAndroidLocation",
+                    TAG,
                     "Gps latitude: ${locationGps!!.latitude}, Gps longitude: ${locationGps!!.longitude}"
                 )
+                return getCityName(context)
             }
+
         } else {
             context.startActivity(Intent(Settings.ACTION_LOCATION_SOURCE_SETTINGS))
         }
-        return getCityName(context)
+        return "Moscow"
     }
 
     private fun getCityName(context: Context): String {
